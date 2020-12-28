@@ -1,0 +1,24 @@
+{
+  "name": "first_node_exercise",
+  "version": "1.0.0",
+  "description": "Exercice du cours Aston sur Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sBoussus/aston_node_js.git"
+  },
+  "keywords": [
+    "aston",
+    "node.js",
+    "exercice"
+  ],
+  "author": "Samuel Boussus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sBoussus/aston_node_js/issues"
+  },
+  "homepage": "https://github.com/sBoussus/aston_node_js#readme"
+}
