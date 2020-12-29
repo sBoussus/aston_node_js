@@ -2,6 +2,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const orders = require('./routes/orders');
+const mongoose = require('mongoose');
+
+/** Connexion à MongoDB */
+mongoose.connect('mongodb+srv://beta_user:FYGc84SBefyVNYec@cluster0.h9zzk.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+        useNewUrlParser : true,
+        useUnifiedTopology: true
+    })
+    .then(() => console.log('Connexion à MongoDB réussie !'))
+    .catch(() => console.log('Connexion à MongoDB échouée !'))
 
 /** Logs en console */
 app.use(function timeLog(req, res, next) {
