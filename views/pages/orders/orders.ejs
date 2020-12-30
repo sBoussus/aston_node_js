@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head'); %>
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../../partials/header'); %>
+    </header>
+
+    <div class="jumbotron">
+
+        <h1>Tableau des orders</h1>
+
+        <% if (orders) { %>
+    
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">User Id</th>
+                </tr>
+                </thead>
+    
+                <tbody>
+                    <% for (order of orders) { %>
+    
+                        <tr>
+                            <td scope="col"><%= order._id %></td>
+                            <td scope="col"><%= order.description %></td>
+                            <td scope="col"><%= order.price %> €</td>
+                            <td scope="col"><%= order.userId %></td>
+                        </tr>
+    
+                    <% } %>
+                </tbody>
+            </table>
+    
+        <% } else { %>
+    
+            <p>Aucune donnée !</p>
+    
+        <% } %>
+
+    </div>
+
+
+    <footer>
+        <%- include('../../partials/footer'); %>
+    </footer>
+
+</body>
+</html>

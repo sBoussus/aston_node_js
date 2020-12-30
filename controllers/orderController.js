@@ -1,5 +1,11 @@
 const Order = require('../models/order')
 
+exports.searchOrders = (req, res, next) => {
+  Order.find()
+    .then(orders => res.render('pages/orders/orders', { orders: orders }))
+    .catch(error => res.status(400).json({ error }))
+}
+
 exports.createOrder = (req, res, next) => {
   // Service
   const order = new Order({
@@ -8,12 +14,6 @@ exports.createOrder = (req, res, next) => {
   // Repository
   order.save()
     .then(() => res.status(201).json({ message: 'Objet enregistré !' }))
-    .catch(error => res.status(400).json({ error }))
-}
-
-exports.searchOrders = (req, res, next) => {
-  Order.find()
-    .then(orders => res.status(200).json(orders))
     .catch(error => res.status(400).json({ error }))
 }
 
