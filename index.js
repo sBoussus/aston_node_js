@@ -1,11 +1,14 @@
 const express = require('express');
-const app = express();
-const port = 3000;
+const bodyParser = require('body-parser');
 const orders = require('./routes/orders');
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+const app = express();
+const port = process.env.SERVER_PORT;
 
 /** Connexion à MongoDB */
-const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://beta_user:FYGc84SBefyVNYec@cluster0.h9zzk.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+mongoose.connect(process.env.DB_CONNECT, {
         useNewUrlParser : true,
         useUnifiedTopology: true
     })
@@ -13,7 +16,6 @@ mongoose.connect('mongodb+srv://beta_user:FYGc84SBefyVNYec@cluster0.h9zzk.mongod
     .catch(() => console.log('Connexion à MongoDB échouée !'))
 
 /** CORS */
-const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use((req, res, next) => {
