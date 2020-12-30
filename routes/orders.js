@@ -7,6 +7,11 @@ router.route('/')
     .get(orderController.searchOrders)
     .post(orderController.createOrder)
 
+/** Requêtes sur la route '/orders/create' */
+router.get('/create', (req, res) => {
+    res.render('pages/orders/create');
+})
+
 /** Requêtes sur la route '/orders/id' */
 router.route('/:id')
     .get(orderController.getOrderById)

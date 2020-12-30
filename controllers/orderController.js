@@ -9,11 +9,14 @@ exports.searchOrders = (req, res, next) => {
 exports.createOrder = (req, res, next) => {
   // Service
   const order = new Order({
-    ...req.body
+    description: req.body.description,
+    imageUrl: req.body.imageUrl,
+    userId: req.body.userId,
+    price: req.body.price
   })
   // Repository
   order.save()
-    .then(() => res.status(201).json({ message: 'Objet enregistré !' }))
+    .then(() => res.render('pages/orders/orders', { orders: orders }))
     .catch(error => res.status(400).json({ error }))
 }
 

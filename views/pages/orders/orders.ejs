@@ -23,18 +23,15 @@
                     <th scope="col">Price</th>
                     <th scope="col">User Id</th>
                 </tr>
-                </thead>
-    
+                </thead>    
                 <tbody>
-                    <% for (order of orders) { %>
-    
+                    <% for (order of orders) { %>    
                         <tr>
                             <td scope="col"><%= order._id %></td>
                             <td scope="col"><%= order.description %></td>
                             <td scope="col"><%= order.price %> €</td>
                             <td scope="col"><%= order.userId %></td>
-                        </tr>
-    
+                        </tr>    
                     <% } %>
                 </tbody>
             </table>
