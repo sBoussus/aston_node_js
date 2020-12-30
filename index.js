@@ -2,10 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const orders = require('./routes/orders');
 const mongoose = require('mongoose');
+const ejs = require('ejs');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.SERVER_PORT;
+
+app.set('view engine', 'ejs');
 
 /** Connexion à MongoDB */
 mongoose.connect(process.env.DB_CONNECT, {
@@ -36,7 +39,7 @@ app.use(function timeLog(req, res, next) {
 
 /** Page d'accueil */
 app.get('/', (req, res) => {
-    res.status(200).send('Boussus Samuel');
+    res.render('pages/index');
 })
 
 /** Page orders */
